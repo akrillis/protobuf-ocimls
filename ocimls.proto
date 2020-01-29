@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package ocimls;
+
+service Getter {
+    rpc GetCellCoordinates (CellParams) returns (CellCoordsRadius) {}
+}
+
+message CellParams {
+    string Mcc  = 1;
+    string Mnc  = 2;
+    string Lac  = 3;
+    string Cell = 4;
+}
+
+message CellCoordsRadius {
+    double Lat    = 1;
+    double Lon    = 2;
+    uint32 Radius = 3;
+}
+
