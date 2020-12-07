@@ -4,6 +4,7 @@ package ocimls;
 
 service Getter {
     rpc GetCellCoordinates (CellParams) returns (CellCoordsRadius) {}
+    rpc GetCellGeoAndRange (CellParams) returns (CellGeoPlusRange) {}
 }
 
 message CellParams {
@@ -17,5 +18,12 @@ message CellCoordsRadius {
     double Lat    = 1;
     double Lon    = 2;
     uint32 Radius = 3;
+}
+
+message CellGeoPlusRange {
+    double Lat    = 1;
+    double Lon    = 2;
+    uint32 Radius = 3;
+    string Range  = 4;
 }
 

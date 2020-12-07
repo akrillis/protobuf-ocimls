@@ -142,50 +142,119 @@ func (m *CellCoordsRadius) GetRadius() uint32 {
 	return 0
 }
 
+type CellGeoPlusRange struct {
+	Lat                  float64  `protobuf:"fixed64,1,opt,name=Lat,proto3" json:"Lat,omitempty"`
+	Lon                  float64  `protobuf:"fixed64,2,opt,name=Lon,proto3" json:"Lon,omitempty"`
+	Radius               uint32   `protobuf:"varint,3,opt,name=Radius,proto3" json:"Radius,omitempty"`
+	Range                string   `protobuf:"bytes,4,opt,name=Range,proto3" json:"Range,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *CellGeoPlusRange) Reset()         { *m = CellGeoPlusRange{} }
+func (m *CellGeoPlusRange) String() string { return proto.CompactTextString(m) }
+func (*CellGeoPlusRange) ProtoMessage()    {}
+func (*CellGeoPlusRange) Descriptor() ([]byte, []int) {
+	return fileDescriptor_abafbb0150367190, []int{2}
+}
+
+func (m *CellGeoPlusRange) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_CellGeoPlusRange.Unmarshal(m, b)
+}
+func (m *CellGeoPlusRange) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_CellGeoPlusRange.Marshal(b, m, deterministic)
+}
+func (m *CellGeoPlusRange) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CellGeoPlusRange.Merge(m, src)
+}
+func (m *CellGeoPlusRange) XXX_Size() int {
+	return xxx_messageInfo_CellGeoPlusRange.Size(m)
+}
+func (m *CellGeoPlusRange) XXX_DiscardUnknown() {
+	xxx_messageInfo_CellGeoPlusRange.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CellGeoPlusRange proto.InternalMessageInfo
+
+func (m *CellGeoPlusRange) GetLat() float64 {
+	if m != nil {
+		return m.Lat
+	}
+	return 0
+}
+
+func (m *CellGeoPlusRange) GetLon() float64 {
+	if m != nil {
+		return m.Lon
+	}
+	return 0
+}
+
+func (m *CellGeoPlusRange) GetRadius() uint32 {
+	if m != nil {
+		return m.Radius
+	}
+	return 0
+}
+
+func (m *CellGeoPlusRange) GetRange() string {
+	if m != nil {
+		return m.Range
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*CellParams)(nil), "ocimls.CellParams")
 	proto.RegisterType((*CellCoordsRadius)(nil), "ocimls.CellCoordsRadius")
+	proto.RegisterType((*CellGeoPlusRange)(nil), "ocimls.CellGeoPlusRange")
 }
 
-func init() { proto.RegisterFile("ocimls.proto", fileDescriptor_abafbb0150367190) }
+func init() {
+	proto.RegisterFile("ocimls.proto", fileDescriptor_abafbb0150367190)
+}
 
 var fileDescriptor_abafbb0150367190 = []byte{
-	// 195 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x90, 0xb1, 0x8a, 0xc3, 0x30,
-	0x0c, 0x86, 0x2f, 0x97, 0x60, 0x38, 0x71, 0x07, 0x41, 0xc3, 0x61, 0x3a, 0x95, 0x4c, 0x9d, 0x32,
-	0xb4, 0x8f, 0x90, 0x42, 0x96, 0x34, 0x94, 0x0c, 0xdd, 0x5d, 0xc7, 0x43, 0x20, 0xb1, 0x8b, 0xad,
-	0xbe, 0x7f, 0xb1, 0x1c, 0xda, 0x4c, 0x96, 0x3e, 0xac, 0xcf, 0xfe, 0x05, 0xbf, 0x4e, 0x4f, 0xcb,
-	0x1c, 0xea, 0x87, 0x77, 0xe4, 0x50, 0xa4, 0xae, 0xba, 0x01, 0x34, 0x66, 0x9e, 0xaf, 0xca, 0xab,
-	0x25, 0x60, 0x09, 0xf9, 0x45, 0x6b, 0x99, 0xed, 0xb3, 0xc3, 0xcf, 0x10, 0x4b, 0x26, 0x56, 0xcb,
-	0xef, 0x95, 0x58, 0x26, 0x9d, 0xd2, 0x32, 0x4f, 0xa4, 0x53, 0x1a, 0x11, 0x8a, 0xe8, 0x90, 0x05,
-	0x23, 0xae, 0xab, 0x1e, 0xca, 0x78, 0x36, 0xce, 0xf9, 0x31, 0x0c, 0x6a, 0x9c, 0x9e, 0x21, 0x4d,
-	0x12, 0xdb, 0xb3, 0x38, 0x49, 0x4c, 0x9c, 0x65, 0x7b, 0x24, 0xce, 0xe2, 0x3f, 0x88, 0x74, 0x9b,
-	0x1f, 0xf8, 0x1b, 0xd6, 0xee, 0xd8, 0x83, 0x68, 0x0d, 0x91, 0xf1, 0x78, 0x06, 0x6c, 0x0d, 0xbd,
-	0xe5, 0x93, 0x55, 0x64, 0x02, 0x62, 0xbd, 0xc6, 0xfb, 0xa4, 0xd9, 0xc9, 0x2d, 0xdb, 0xfe, 0xa4,
-	0xfa, 0xba, 0x0b, 0x5e, 0xc3, 0xe9, 0x15, 0x00, 0x00, 0xff, 0xff, 0x1d, 0x87, 0xed, 0xcf, 0x16,
-	0x01, 0x00, 0x00,
+	// 237 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x91, 0xc1, 0x4a, 0x04, 0x31,
+	0x0c, 0x40, 0x77, 0xdc, 0x75, 0xc0, 0xa0, 0xb0, 0x04, 0x91, 0xe2, 0x49, 0x7a, 0xf2, 0xb4, 0x07,
+	0xfd, 0x02, 0x59, 0x61, 0x2e, 0xab, 0x2c, 0x73, 0xf0, 0x5e, 0x3b, 0x41, 0x06, 0xba, 0x8d, 0xb4,
+	0x9d, 0x3f, 0xf1, 0x83, 0xa5, 0x69, 0xd1, 0xde, 0x3c, 0x78, 0x6a, 0xf2, 0x68, 0x5e, 0x93, 0x14,
+	0x2e, 0xd9, 0xce, 0x27, 0x17, 0x77, 0x9f, 0x81, 0x13, 0x63, 0x5f, 0x32, 0xfd, 0x06, 0xb0, 0x27,
+	0xe7, 0x8e, 0x26, 0x98, 0x53, 0xc4, 0x2d, 0xac, 0x5f, 0xac, 0x55, 0xdd, 0x5d, 0x77, 0x7f, 0x31,
+	0xe6, 0x50, 0x88, 0xb7, 0xea, 0xac, 0x12, 0x2f, 0xe4, 0x60, 0xac, 0x5a, 0x17, 0x72, 0x30, 0x16,
+	0x11, 0x36, 0xd9, 0xa1, 0x36, 0x82, 0x24, 0xd6, 0xaf, 0xb0, 0xcd, 0xe7, 0x9e, 0x39, 0x4c, 0x71,
+	0x34, 0xd3, 0xbc, 0xc4, 0x52, 0x99, 0xc4, 0xde, 0xe5, 0xca, 0x24, 0x84, 0xbd, 0xd8, 0x33, 0x61,
+	0x8f, 0x37, 0xd0, 0x97, 0xdb, 0xf2, 0xc0, 0xd5, 0x58, 0x33, 0x3d, 0x15, 0xdf, 0x40, 0x7c, 0x74,
+	0x4b, 0x1c, 0x8d, 0xff, 0xa0, 0xff, 0xf8, 0xf0, 0x1a, 0xce, 0x45, 0x52, 0x9b, 0x2e, 0xc9, 0xc3,
+	0x57, 0x07, 0xfd, 0x40, 0x29, 0x51, 0xc0, 0x67, 0xc0, 0x81, 0xd2, 0xcf, 0x0c, 0xb3, 0x37, 0x89,
+	0x22, 0xe2, 0xae, 0x6e, 0xf1, 0x77, 0x69, 0xb7, 0xaa, 0x65, 0xed, 0xc0, 0x7a, 0xd5, 0x58, 0x06,
+	0xe2, 0x27, 0x3f, 0x95, 0xc6, 0xff, 0xb4, 0xb4, 0x63, 0xea, 0xd5, 0x7b, 0x2f, 0x7f, 0xf6, 0xf8,
+	0x1d, 0x00, 0x00, 0xff, 0xff, 0xde, 0xdb, 0xb9, 0xf8, 0xc3, 0x01, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ context.Context
-var _ grpc.ClientConn
+var _ grpc.ClientConnInterface
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion4
+const _ = grpc.SupportPackageIsVersion6
 
 // GetterClient is the client API for Getter service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GetterClient interface {
 	GetCellCoordinates(ctx context.Context, in *CellParams, opts ...grpc.CallOption) (*CellCoordsRadius, error)
+	GetCellGeoAndRange(ctx context.Context, in *CellParams, opts ...grpc.CallOption) (*CellGeoPlusRange, error)
 }
 
 type getterClient struct {
-	cc *grpc.ClientConn
+	cc grpc.ClientConnInterface
 }
 
-func NewGetterClient(cc *grpc.ClientConn) GetterClient {
+func NewGetterClient(cc grpc.ClientConnInterface) GetterClient {
 	return &getterClient{cc}
 }
 
@@ -198,9 +267,19 @@ func (c *getterClient) GetCellCoordinates(ctx context.Context, in *CellParams, o
 	return out, nil
 }
 
+func (c *getterClient) GetCellGeoAndRange(ctx context.Context, in *CellParams, opts ...grpc.CallOption) (*CellGeoPlusRange, error) {
+	out := new(CellGeoPlusRange)
+	err := c.cc.Invoke(ctx, "/ocimls.Getter/GetCellGeoAndRange", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GetterServer is the server API for Getter service.
 type GetterServer interface {
 	GetCellCoordinates(context.Context, *CellParams) (*CellCoordsRadius, error)
+	GetCellGeoAndRange(context.Context, *CellParams) (*CellGeoPlusRange, error)
 }
 
 // UnimplementedGetterServer can be embedded to have forward compatible implementations.
@@ -209,6 +288,9 @@ type UnimplementedGetterServer struct {
 
 func (*UnimplementedGetterServer) GetCellCoordinates(ctx context.Context, req *CellParams) (*CellCoordsRadius, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetCellCoordinates not implemented")
+}
+func (*UnimplementedGetterServer) GetCellGeoAndRange(ctx context.Context, req *CellParams) (*CellGeoPlusRange, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetCellGeoAndRange not implemented")
 }
 
 func RegisterGetterServer(s *grpc.Server, srv GetterServer) {
@@ -233,6 +315,24 @@ func _Getter_GetCellCoordinates_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Getter_GetCellGeoAndRange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CellParams)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GetterServer).GetCellGeoAndRange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/ocimls.Getter/GetCellGeoAndRange",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GetterServer).GetCellGeoAndRange(ctx, req.(*CellParams))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Getter_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "ocimls.Getter",
 	HandlerType: (*GetterServer)(nil),
@@ -240,6 +340,10 @@ var _Getter_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetCellCoordinates",
 			Handler:    _Getter_GetCellCoordinates_Handler,
+		},
+		{
+			MethodName: "GetCellGeoAndRange",
+			Handler:    _Getter_GetCellGeoAndRange_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

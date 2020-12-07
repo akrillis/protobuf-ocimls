@@ -1,6 +1,7 @@
 # Ignore all
 *
 .DS_Store
+.idea
 
 # Unignore all with extensions
 !*.*
